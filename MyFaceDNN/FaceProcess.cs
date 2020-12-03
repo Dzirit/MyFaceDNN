@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Accord.MachineLearning;
 
 namespace MyFaceDNN
 {
@@ -17,8 +18,11 @@ namespace MyFaceDNN
         
         private Net faceDetector,embedder, embedder2 = null;
         private FacemarkLBF facemark = null;
-        private VectorOfMat imageList = new VectorOfMat();
         private Mat dbFaceVector;
+        //private EigenFaceRecognizer recognizer;
+        //private VectorOfMat imageList = new VectorOfMat();
+        //private List<string> nameList = new List<string>();
+        //private VectorOfInt labelList = new VectorOfInt();
         public FaceProcces()
         {
             if (facemark == null)
@@ -29,11 +33,20 @@ namespace MyFaceDNN
                     facemark.LoadModel("lbfmodel.yaml");
                 }
             }
+           
             faceDetector = DnnInvoke.ReadNetFromCaffe("deploy.prototxt", "res10_300x300_ssd_iter_140000.caffemodel");
             embedder = DnnInvoke.ReadNet("nn4.small2.v1.t7");
             embedder2 = DnnInvoke.ReadNet("nn4.small2.v1.t7");
             var dbFace = GetPhoto();
             dbFaceVector = GetFeatureVector2(dbFace);
+            /////
+            /// int i = 0;
+            //labelList.Push(new[] { i++ });
+            //imageList.Push(dbFaceVector);
+            //recognizer = new EigenFaceRecognizer(imageList.Size);
+            //recognizer.Train(imageList, labelList);
+
+            //Accord.MachineLearning.VectorMachines.MultilabelSupportVectorMachine
         }
 
 
@@ -173,15 +186,19 @@ namespace MyFaceDNN
 
         private void VerifyFace(Mat face1, Mat face2)
         {
-
-            var distance = CvInvoke.Norm(face1, face2, Emgu.CV.CvEnum.NormType.L2);
-            Console.SetCursorPosition(0, 8);
-            Console.WriteLine($"Distance:{Math.Abs(distance)*100}");
+            ///////////////////
+            //var d=recognizer.Predict(face1);
+            //Console.SetCursorPosition(0, 7);
+            //Console.WriteLine($"Distance:{d.Distance} label:{d.Label}");
+            ////////
+            //var distance = CvInvoke.Norm(face1, face2, Emgu.CV.CvEnum.NormType.L2);
+            //Console.SetCursorPosition(0, 8);
+            //Console.WriteLine($"Distance:{Math.Abs(distance)*100}");
         }
 
         private Mat GetPhoto()
         {
-            Mat image = new Mat(".\\2.jpg");
+            Mat image = new Mat(".\\1.jpg");
             var fullFaceRegions = DetectFace(image);
             if (fullFaceRegions.Count>0)
             {
