@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFaceDNN", "MyFaceDNN\MyFaceDNN.csproj", "{51E99BDC-68DF-47BB-A5AD-4FAAC1EA0F58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intel.RealSense", "Intel.RealSense\Intel.RealSense.csproj", "{525050D6-79F4-4A22-B3CD-7FBC402F1407}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51E99BDC-68DF-47BB-A5AD-4FAAC1EA0F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E99BDC-68DF-47BB-A5AD-4FAAC1EA0F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E99BDC-68DF-47BB-A5AD-4FAAC1EA0F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E99BDC-68DF-47BB-A5AD-4FAAC1EA0F58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{525050D6-79F4-4A22-B3CD-7FBC402F1407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{525050D6-79F4-4A22-B3CD-7FBC402F1407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{525050D6-79F4-4A22-B3CD-7FBC402F1407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{525050D6-79F4-4A22-B3CD-7FBC402F1407}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCF9E720-147B-4313-8C33-0200B530B5F1}
+	EndGlobalSection
+EndGlobal
