@@ -11,9 +11,9 @@ namespace MyFaceDNN
                 .AddJsonFile("config.json", optional: true, reloadOnChange: true)
                 .Build();
             var camIndex = int.Parse(config["CamIndex"]);
-            //var webcam = new WebCam(camIndex);
-            var realSense = new RealSenseCam();
-            realSense.GrabFrames();
+            var webcam = new WebCam(camIndex);
+            //var realSense = new RealSenseCam();
+            //realSense.GrabFrames();
         }
     }
 }

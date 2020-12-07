@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using Accord.MachineLearning;
+using Emgu.CV.ML;
 
 namespace MyFaceDNN
 {
@@ -20,9 +21,10 @@ namespace MyFaceDNN
         private FacemarkLBF facemark = null;
         private Mat dbFaceVector;
         //private EigenFaceRecognizer recognizer;
-        //private VectorOfMat imageList = new VectorOfMat();
-        //private List<string> nameList = new List<string>();
-        //private VectorOfInt labelList = new VectorOfInt();
+        private VectorOfMat imageList = new VectorOfMat();
+        private List<string> nameList = new List<string>();
+        private VectorOfInt labelList = new VectorOfInt();
+        SVM svm;
         public FaceProcces()
         {
             if (facemark == null)
@@ -40,9 +42,12 @@ namespace MyFaceDNN
             var dbFace = GetPhoto();
             dbFaceVector = GetFeatureVector2(dbFace);
             /////
-            /// int i = 0;
-            //labelList.Push(new[] { i++ });
-            //imageList.Push(dbFaceVector);
+            int i = 0;
+            labelList.Push(new[] { i++ });
+            imageList.Push(dbFaceVector);
+            svm = new SVM();
+            TrainData trainData = new TrainData(dbFaceVector, Emgu.CV.ML.MlEnum.DataLayoutType.RowSample, labelList);
+            svm.TrainAuto(trainData,10);
             //recognizer = new EigenFaceRecognizer(imageList.Size);
             //recognizer.Train(imageList, labelList);
 
@@ -186,6 +191,10 @@ namespace MyFaceDNN
 
         private void VerifyFace(Mat face1, Mat face2)
         {
+            
+            var r=svm.Predict(face1);
+            Console.SetCursorPosition(0, 8);
+            Console.WriteLine($"Distance:{r}");
             ///////////////////
             //var d=recognizer.Predict(face1);
             //Console.SetCursorPosition(0, 7);
