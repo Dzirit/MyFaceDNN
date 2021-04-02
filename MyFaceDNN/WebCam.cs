@@ -8,7 +8,7 @@ namespace MyFaceDNN
     public class WebCam
     {
         static string windowName = "1";
-        public WebCam(int camIndex = 0)
+        public WebCam(string camIndex = "0")
         {
             var faceDetection = new FaceProcces();
             VideoCapture videoCapture = new VideoCapture(camIndex);

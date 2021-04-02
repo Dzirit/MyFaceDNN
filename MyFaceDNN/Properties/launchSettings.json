@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MyFaceDNN": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
