@@ -48,7 +48,7 @@ namespace MyFaceDNN
             var windowName = "RealSense";
             CvInvoke.NamedWindow(windowName, Emgu.CV.CvEnum.WindowFlags.AutoSize);
             ulong lastFrameNumber = 0;
-            var faceProcces = new FaceProcces();
+            var faceProcces = new FaceProccesDNN();
             while (CvInvoke.WaitKey(1) < 0 & CvInvoke.GetWindowProperty(windowName, Emgu.CV.CvEnum.WindowPropertyFlags.AutoSize) >= 0)//Esc
             {
                 using (var frames = pipeline.WaitForFrames())

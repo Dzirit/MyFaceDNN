@@ -14,7 +14,7 @@ using Emgu.CV.ML;
 
 namespace MyFaceDNN
 {
-    public class FaceProcces
+    public class FaceProccesDNN
     {
         
         private Net faceDetector,embedder, embedder2 = null;
@@ -25,7 +25,7 @@ namespace MyFaceDNN
         private List<string> nameList = new List<string>();
         private VectorOfInt labelList = new VectorOfInt();
         SVM svm;
-        public FaceProcces()
+        public FaceProccesDNN()
         {
             if (facemark == null)
             {
